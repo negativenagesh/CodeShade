@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top Center Facet (Brightest reflection) -->
+  <polygon points="35,20 65,20 50,45" fill="#86efac" />
+  
+  <!-- Top Left Facet -->
+  <polygon points="35,20 10,45 50,45" fill="#4ade80" />
+  
+  <!-- Top Right Facet -->
+  <polygon points="65,20 50,45 90,45" fill="#22c55e" />
+  
+  <!-- Bottom Left Facet -->
+  <polygon points="10,45 50,95 50,45" fill="#16a34a" />
+  
+  <!-- Bottom Right Facet (Darkest shadow) -->
+  <polygon points="90,45 50,45 50,95" fill="#15803d" />
+</svg>
