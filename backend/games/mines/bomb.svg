@@ -1,0 +1,29 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fuse Cap / Bump -->
+  <circle cx="68" cy="22" r="12" fill="#cd2240" />
+  
+  <!-- Fuse (Thick snake curving outwards and back in) -->
+  <path d="M 76 16 C 98 -5, 105 40, 75 35 C 60 32, 45 35, 35 45" fill="none" stroke="#272f41" stroke-width="7" stroke-linecap="round" />
+  
+  <!-- Main Bomb Body (Perfect flat circle) -->
+  <circle cx="50" cy="55" r="42" fill="#fe2f51" />
+  
+  <!-- Spark (Starburst) positioned where the fuse terminates -->
+  <g transform="translate(35, 45)">
+    <!-- Yellow chaotic starburst base -->
+    <path d="M 0,-24 L 3,-6 L 18,-15 L 6,-2 L 24,0 L 5,3 L 14,19 L 2,6 L -2,24 L -4,6 L -18,18 L -6,3 L -26,1 L -7,-2 L -18,-16 L -3,-6 Z" fill="#fdc028" />
+    
+    <!-- Bright white inner flash -->
+    <path d="M 0,-14 L 2,-4 L 10,-9 L 4,-1 L 14,0 L 3,2 L 8,11 L 1,4 L -1,13 L -3,4 L -10,10 L -4,2 L -15,1 L -4,-1 L -10,-9 L -2,-4 Z" fill="#ffffff" />
+    
+    <!-- Shrapnel / Spark fragments flying outwards -->
+    <polygon points="-12,-18 -9,-22 -7,-16" fill="#ffffff" />
+    <polygon points="-19,-11 -16,-14 -13,-9" fill="#fdc028" />
+    
+    <polygon points="11,-19 15,-16 13,-11" fill="#fdc028" />
+    
+    <polygon points="-18,11 -20,15 -14,13" fill="#ffffff" />
+    
+    <polygon points="16,9 22,7 19,13" fill="#fdc028" />
+  </g>
+</svg>
