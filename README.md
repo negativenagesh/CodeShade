@@ -32,31 +32,28 @@ cd CodeShade
 
 ### 2. Install Requirements
 
-Ensure you have the following installed on your machine:
-- [Docker](https://www.docker.com/) (Includes Docker Compose)
-- [uv](https://github.com/astral-sh/uv) (Install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
+Ensure you have [uv](https://github.com/astral-sh/uv) installed on your machine to manage dependencies and build the app:
 
-### 3. Start the Backend
+- Install `uv` via: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
-Our backend container uses an optimized `debian-slim` base that binds the environment dynamically via `uv`. Boot it up in the background:
+### 3. Build the macOS App
+
+We provide a convenient bash script to install PyInstaller and bundle the application (including the FastAPI server and all frontend assets) into a `.app` file:
 
 ```bash
-docker compose up -d --build
+chmod +x build_mac.sh
+./build_mac.sh
 ```
-*(This starts the FastAPI game state server on `http://localhost:8000`)*
 
 ### 4. Launch CodeShade
 
-Start the transparent frontend app overlay using `uv`:
+Once the build is complete, your standalone app will be located in the `dist/` folder.
+You can open it directly from the terminal or double-click it in Finder:
 
 ```bash
-uv run main.py
+open dist/CodeShade.app
 ```
-*(The transparent client will successfully launch and snap directly over your active IDE)*
 
-## Games and Features
+_(The transparent client will successfully launch, start the backend automatically, and snap over your active windows)_
 
-- **Mines (Stake Parity)**: A faithfully recreated 5x5 Mines game including authentic zero-latency macOS hit chimes, exact nCr-based multiplier mathematics, and premium flat-vector graphics.
-- **True Transparency**: Frameless PyQt6 overlay that naturally integrates into your workflow. Minimalist UI approach: no borders, heavy shadows, or visual bloat.
-- **Blazing Fast Backend**: Containerized FastAPI microservice backend managing game session state and provably fair multi-stage logic.
-- **Zero-Friction Environment**: Powered entirely by Astral's `uv`. No venv headaches, no massive standard requirements installs.
+> **Running from source**: If you prefer to run CodeShade without building the bundle, simply execute `uv run main.py`.
