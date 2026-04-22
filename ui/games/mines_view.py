@@ -1,4 +1,5 @@
 import os
+import sys
 import requests
 import subprocess
 from PyQt6.QtWidgets import (
@@ -10,8 +11,17 @@ from PyQt6.QtGui import QFont, QIcon
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000/api")
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 def play_sound(name):
-    base_dir = os.path.join(os.getcwd(), "backend", "games", "mines", "sounds")
+    base_dir = resource_path(os.path.join("assets", "sounds"))
     try:
         if name == "Glass":
             subprocess.Popen(["afplay", os.path.join(base_dir, "diamond_trimmed.wav")])
@@ -207,7 +217,7 @@ class MinesGame(QWidget):
                 else:
                     play_sound("Glass")
                     self.tiles[idx].setText("")
-                    icon_path = os.path.join(os.getcwd(), "backend", "games", "mines", "diamond.svg")
+                    icon_path = resource_path(os.path.join("assets", "images", "diamond.svg"))
                     self.tiles[idx].setIcon(QIcon(icon_path))
                     self.tiles[idx].setIconSize(QSize(60, 60))
                     self.tiles[idx].setStyleSheet(get_tile_style("gem"))
@@ -247,7 +257,7 @@ class MinesGame(QWidget):
         for i, val in enumerate(board):
             if val == "bomb":
                 self.tiles[i].setText("")
-                bomb_path = os.path.join(os.getcwd(), "backend", "games", "mines", "bomb.svg")
+                bomb_path = resource_path(os.path.join("assets", "images", "bomb.svg"))
                 self.tiles[i].setIcon(QIcon(bomb_path))
                 self.tiles[i].setIconSize(QSize(60, 60))
                 if i == hit_idx:
@@ -256,7 +266,7 @@ class MinesGame(QWidget):
                     self.tiles[i].setStyleSheet(get_tile_style("dimmed_bomb"))
             elif val == "safe":
                 self.tiles[i].setText("")
-                icon_path = os.path.join(os.getcwd(), "backend", "games", "mines", "diamond.svg")
+                icon_path = resource_path(os.path.join("assets", "images", "diamond.svg"))
                 self.tiles[i].setIcon(QIcon(icon_path))
                 self.tiles[i].setIconSize(QSize(60, 60))
                 if i in picked_indices:

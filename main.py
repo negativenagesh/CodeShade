@@ -33,7 +33,6 @@ class TransparentApp(QMainWindow):
         self.stack.addWidget(self.games_view)    # Index 1
         self.stack.addWidget(self.mines_view)    # Index 2
         
-        self.old_pos = None
 
     def switch_game(self, index: int):
         self.stack.setCurrentIndex(index)
@@ -46,19 +45,22 @@ class TransparentApp(QMainWindow):
     # Implemented drag logic so window can be moved despite lacking a title bar
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
-            self.old_pos = event.globalPosition().toPoint()
-            
-    def mouseMoveEvent(self, event):
-        if self.old_pos is not None:
-            delta = event.globalPosition().toPoint() - self.old_pos
-            self.move(self.pos() + delta)
-            self.old_pos = event.globalPosition().toPoint()
-            
-    def mouseReleaseEvent(self, event):
-        if event.button() == Qt.MouseButton.LeftButton:
-            self.old_pos = None
+            self.windowHandle().startSystemMove()
+
+import multiprocessing
+
+def start_backend():
+    import uvicorn
+    from backend.main import app as fastapi_app
+    uvicorn.run(fastapi_app, host="127.0.0.1", port=8000)
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
+    
+    # Start the backend server programmatically
+    server_process = multiprocessing.Process(target=start_backend, daemon=True)
+    server_process.start()
+
     app = QApplication(sys.argv)
     window = TransparentApp()
     window.show()

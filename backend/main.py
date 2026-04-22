@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from games.mines.router import router as mines_router
+from backend.games.mines.router import router as mines_router
 
 app = FastAPI()
 
