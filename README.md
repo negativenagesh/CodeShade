@@ -6,6 +6,8 @@
 
 CodeShade is a fully transparent, frameless desktop gaming application built specifically for **vibecoding**.
 
+![CodeShade Demo](assets/CodeShade.gif)
+
 When using agentic coding platforms like Cursor, ClaudeCode, Antigravity, or GitHub Copilot in VSCode, you often have to sit and wait while the AI generates entire files, plans architectures, or runs tests. CodeShade solves that boredom.
 
 It launches a transparent desktop overlay right over your IDE. You can play high-tension, Stake-inspired games (like **Mines**) directly over your codebase. Because the background is completely translucent, you can casually watch your AI agent's cursor move and code as you play so you instantly know when it is done!
