@@ -14,13 +14,6 @@ When using agentic coding platforms like Cursor, ClaudeCode, Antigravity, or Git
 
 It launches a transparent desktop overlay right over your IDE. You can play high-tension, Stake-inspired games (like **Mines**) directly over your codebase. Because the background is completely translucent, you can casually watch your AI agent's cursor move and code as you play so you instantly know when it is done!
 
-## Support and Follow
-
-If you enjoy CodeShade and find it useful for your vibecoding setup, please consider supporting the project:
-
-- **Star the repository**: Click the Star button at the top right of this page to show your support!
-- **Fork the project**: Click Fork to create your own copy and start contributing or modifying games.
-
 ## Setup & Installation
 
 We use Docker for the backend game-state server and `uv` to securely execute the frontend desktop application.
@@ -61,3 +54,10 @@ open dist/CodeShade.app
 _(The transparent client will successfully launch, start the backend automatically, and snap over your active windows)_
 
 > **Running from source**: If you prefer to run CodeShade without building the bundle, simply execute `uv run main.py`.
+
+## Support and Follow
+
+If you enjoy CodeShade and find it useful for your vibecoding setup, please consider supporting the project:
+
+- **Star the repository**: Click the Star button at the top right of this page to show your support!
+- **Fork the project**: Click Fork to create your own copy and start contributing or modifying games.
