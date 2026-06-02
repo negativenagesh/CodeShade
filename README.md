@@ -6,6 +6,10 @@
 
 CodeShade is a fully transparent, frameless desktop gaming application built specifically for **vibecoding**.
 
+
+### Watch Demo: Wait for it to Load
+
+
 <p align="left">
   <img src="assets/CodeShade.gif" alt="CodeShade Demo" width="800" />
 </p>
